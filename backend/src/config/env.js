@@ -15,7 +15,7 @@ export const env = {
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET || 'refresh_secret_dev',
   jwtAccessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN || '15m',
   jwtRefreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173,https://subscriptions-management-three.vercel.app',
   razorpayKeyId: process.env.RAZORPAY_KEY_ID || 'rzp_test_STqHb1ZKajDEzK',
   razorpayKeySecret: process.env.RAZORPAY_KEY_SECRET || 'test_secret_key',
 };

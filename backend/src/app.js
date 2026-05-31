@@ -10,41 +10,13 @@ import { globalErrorHandler, notFound } from './middleware/error.middleware.js';
 const app = express();
 
 app.use(helmet());
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  'http://localhost:5174',
-  'http://127.0.0.1:5173',
-  'http://127.0.0.1:3000',
-];
-
-if (env.clientUrl) {
-  allowedOrigins.push(env.clientUrl.replace(/\/$/, ''));
-}
+const allowedOrigins = env.clientUrl
+  ? env.clientUrl.split(',').map(url => url.trim())
+  : ['http://localhost:5173'];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl/Postman)
-      if (!origin) return callback(null, true);
-
-      const formattedOrigin = origin.replace(/\/$/, '');
-
-      const isAllowed = 
-        allowedOrigins.includes(formattedOrigin) ||
-        formattedOrigin.startsWith('http://localhost:') ||
-        formattedOrigin.startsWith('http://127.0.0.1:') ||
-        formattedOrigin.endsWith('.vercel.app') ||
-        formattedOrigin.endsWith('.onrender.com') ||
-        formattedOrigin.endsWith('.netlify.app');
-
-      if (isAllowed) {
-        callback(null, true);
-      } else {
-        console.warn(`[CORS Blocked] Origin not allowed: ${origin}`);
-        callback(null, false); // Return false instead of throwing error to let it be rejected cleanly
-      }
-    },
+    origin: allowedOrigins,
     credentials: true,
   })
 );

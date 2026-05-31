@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+.env.example
+README.
 
 # Editor directories and files
 .vscode/*

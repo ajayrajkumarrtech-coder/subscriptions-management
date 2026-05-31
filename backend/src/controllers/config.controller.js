@@ -1,0 +1,11 @@
+import { env } from '../config/env.js';
+import { asyncHandler } from '../utils/asyncHandler.js';
+
+export const getPublicConfig = asyncHandler(async (req, res) => {
+  res.json({
+    success: true,
+    config: {
+      razorpayKeyId: env.razorpayKeyId,
+    },
+  });
+});

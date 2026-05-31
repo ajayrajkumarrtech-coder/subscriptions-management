@@ -81,7 +81,7 @@ npm run seed
 npm run dev
 ```
 
-Backend runs at **http://localhost:5000**
+Backend runs at **http://localhost:3000**
 
 ### 3. Frontend setup
 
@@ -108,7 +108,7 @@ Frontend runs at **http://localhost:5173**
 | Variable | Description |
 |----------|-------------|
 | `NODE_ENV` | development / production |
-| `PORT` | API port (default 5000) |
+| `PORT` | API port (default 3000) |
 | `MONGODB_URI` | MongoDB connection string |
 | `JWT_ACCESS_SECRET` | Access token secret |
 | `JWT_REFRESH_SECRET` | Refresh token secret |

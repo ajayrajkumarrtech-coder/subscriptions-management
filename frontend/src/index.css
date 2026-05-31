@@ -9,6 +9,10 @@
   --color-brand-500: #6366f1;
   --color-brand-600: #4f46e5;
   --color-brand-700: #4338ca;
+  --color-admin-teal: #14b8a6;
+  --color-admin-coral: #fb7185;
+  --color-admin-gold: #fbbf24;
+  --color-admin-midnight: #0f172a;
 }
 
 html {
@@ -28,4 +32,169 @@ body {
   .gradient-bg {
     @apply bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600;
   }
+
+  .admin-page-bg {
+    @apply relative min-h-[calc(100vh-4rem)];
+  }
+
+  .admin-page-bg::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 -z-10;
+    background:
+      radial-gradient(ellipse 70% 45% at 10% -5%, rgba(99, 102, 241, 0.07), transparent),
+      radial-gradient(ellipse 55% 35% at 95% 5%, rgba(20, 184, 166, 0.06), transparent);
+  }
+
+  .dark .admin-page-bg::before {
+    background:
+      radial-gradient(ellipse 70% 45% at 10% -5%, rgba(99, 102, 241, 0.08), transparent),
+      radial-gradient(ellipse 55% 35% at 95% 5%, rgba(20, 184, 166, 0.06), transparent);
+  }
+
+  .admin-hero {
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-8 text-slate-900 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-white;
+  }
+
+  .admin-section-title {
+    @apply text-base font-semibold tracking-tight text-slate-900 sm:text-lg dark:text-white;
+  }
+
+  .admin-section-desc {
+    @apply mt-0.5 text-sm text-slate-500 dark:text-slate-400;
+  }
+
+  .admin-stat-card {
+    @apply rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5 dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .admin-panel {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .admin-input {
+    @apply w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-10 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500;
+  }
+
+  .admin-sub-card {
+    @apply rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900;
+  }
+}
+
+/* SweetAlert2 plan confirmation */
+.swal-plan-popup {
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+}
+
+.swal-plan-html {
+  margin: 0.75rem 0 0 !important;
+  text-align: left !important;
+}
+
+.swal-plan-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.swal-plan-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.swal-plan-current {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.swal-plan-selected {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.swal-plan-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.swal-plan-meta {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.swal-plan-arrow {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #6366f1;
+  line-height: 1;
+}
+
+.swal-features {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.swal-features li {
+  margin-bottom: 0.2rem;
+}
+
+.swal-plan-note {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.swal-pricing-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.swal-pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.swal-pricing-row strong {
+  color: #0f172a;
+}
+
+.swal-pricing-credit strong {
+  color: #059669;
+}
+
+.swal-pricing-total {
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #cbd5e1;
+  font-weight: 600;
+}
+
+.swal-pricing-total strong {
+  color: #4f46e5;
+  font-size: 1rem;
+}
+
+.swal-credit-note {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: #059669;
+  text-align: center;
 }

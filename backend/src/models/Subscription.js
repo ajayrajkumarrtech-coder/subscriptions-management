@@ -26,6 +26,11 @@ const subscriptionSchema = new mongoose.Schema(
       enum: [SUBSCRIPTION_STATUS.ACTIVE, SUBSCRIPTION_STATUS.EXPIRED],
       default: SUBSCRIPTION_STATUS.ACTIVE,
     },
+    amountPaid: {
+      type: Number,
+      default: null,
+      min: 0,
+    },
   },
   { timestamps: true }
 );

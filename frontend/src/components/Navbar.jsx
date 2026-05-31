@@ -26,15 +26,24 @@ const Navbar = () => {
     { to: '/plans', label: 'Plans' },
   ];
 
-  const adminLinks = [{ to: '/admin/subscriptions', label: 'All Subscriptions' }];
+  const adminLinks = [{ to: '/admin/subscriptions', label: 'Admin Dashboard' }];
 
   const links = user?.role === ROLES.ADMIN ? adminLinks : userLinks;
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/dashboard" className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl gradient-bg text-sm text-white">
+        <Link
+          to={user?.role === ROLES.ADMIN ? '/admin/subscriptions' : '/dashboard'}
+          className="flex items-center gap-2 font-bold text-slate-900 dark:text-white"
+        >
+          <span
+            className={`flex h-9 w-9 items-center justify-center rounded-xl text-sm text-white ${
+              user?.role === ROLES.ADMIN
+                ? 'bg-gradient-to-br from-teal-500 via-emerald-500 to-cyan-600'
+                : 'gradient-bg'
+            }`}
+          >
             S
           </span>
           <span className="hidden sm:inline">SubFlow</span>

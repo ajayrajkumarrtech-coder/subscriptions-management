@@ -8,6 +8,8 @@ import { ROLES } from '../constants/index.js';
 
 const router = Router();
 
+router.get('/analytics', protect, authorize(ROLES.ADMIN), adminController.getAnalytics);
+
 router.get(
   '/subscriptions',
   protect,

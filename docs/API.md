@@ -1,6 +1,6 @@
 # API Documentation
 
-Base URL: `http://localhost:5000/api`
+Base URL: `http://localhost:3000/api`
 
 All responses follow:
 
@@ -167,6 +167,43 @@ Creates a new subscription for the authenticated user.
 ---
 
 ## Admin
+
+### GET `/admin/analytics`
+
+**Auth required** (admin only)
+
+Returns revenue overview and per-plan sales breakdown.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "analytics": {
+    "overview": {
+      "totalRevenue": 3998,
+      "activeRevenue": 2999,
+      "totalSubscriptions": 5,
+      "activeSubscriptions": 3,
+      "expiredSubscriptions": 2,
+      "totalSubscribers": 4,
+      "totalUsers": 10,
+      "conversionRate": 40,
+      "topPlan": "Pro"
+    },
+    "planBreakdown": [
+      {
+        "plan": "Basic",
+        "price": 299,
+        "subscribers": 2,
+        "revenue": 598,
+        "activeSubscribers": 1
+      }
+    ]
+  }
+}
+```
+
+---
 
 ### GET `/admin/subscriptions`
 

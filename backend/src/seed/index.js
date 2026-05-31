@@ -1,15 +1,16 @@
+import dns from 'node:dns';
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import { env } from '../config/env.js';
 import { Plan } from '../models/Plan.js';
 import { User } from '../models/User.js';
 import { plansSeedData } from './plans.seed.js';
 import { ROLES } from '../constants/index.js';
 
-dotenv.config();
-
 const seed = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/subscription_dashboard');
+    await mongoose.connect(env.mongoUri);
     console.log('Connected to MongoDB for seeding...');
 
     await Plan.deleteMany({});

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { store } from '../app/store';
 import { setCredentials, logout } from '../features/auth/authSlice';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://subscriptionmanagementdashboard.onrender.com/api';
 
 export const bootstrapAuth = async () => {
   const token = store.getState().auth.accessToken;

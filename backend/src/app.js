@@ -12,7 +12,7 @@ const app = express();
 app.use(helmet());
 const allowedOrigins = env.clientUrl
   ? env.clientUrl.split(',').map(url => url.trim())
-  : ['http://localhost:5173'];
+  : ['http://localhost:5173,https://subscriptions-management-three.vercel.app'];
 
 app.use(
   cors({

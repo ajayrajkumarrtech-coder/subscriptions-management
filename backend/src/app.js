@@ -11,10 +11,16 @@ const app = express();
 
 app.use(helmet());
 
-const allowedOrigins = (env.clientUrl || '')
-  .split(',')
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+const allowedOrigins = Array.from(
+  new Set([
+    'http://localhost:5173',
+    'https://subscriptions-management-indol.vercel.app',
+    ...(env.clientUrl || '')
+      .split(',')
+      .map((origin) => origin.trim())
+      .filter(Boolean),
+  ])
+);
 
 app.use(
   cors({
